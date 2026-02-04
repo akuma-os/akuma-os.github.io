@@ -205,9 +205,22 @@
 
         function playFart() {
             const audio = document.getElementById('fart-sound');
+            
+            // 1. Reset and Play FIRST
             audio.currentTime = 0;
-            audio.play();
-            alert("TZZZZZZZ");
+            
+            // 2. Use a promise to catch errors
+            let playPromise = audio.play();
+        
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Sound started! Now show the alert
+                    setTimeout(() => { alert("TZZZZZZZZZ"); }, 100);
+                }).catch(error => {
+                    // If it fails, show the alert anyway
+                    alert("TZZZZZZZZZ");
+                });
+            }
         }
 
         function openGift(type) {
