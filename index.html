@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Hbiba</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #ffe6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .phone-container {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            min-height: 550px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hidden { display: none !important; }
+
+        .screen { 
+            animation: fadeIn 0.6s ease-in-out; 
+            width: 100%;
+        }
+
+        .btn {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover { transform: scale(1.05); background-color: #ff758f; }
+
+        #no-btn { background-color: #a0a0a0; }
+
+        .gift-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .gift-box {
+            background: #ffccd5;
+            width: 80%;
+            padding: 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .gift-box:hover {
+            background: #ffb3c1;
+            transform: translateY(-3px);
+        }
+        #content-display { padding: 10px; max-height: 380px; overflow-y: auto; }
+
+        img { max-width: 100%; border-radius: 15px; margin: 15px 0; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .letter-container { padding: 5px; }
+        
+        .letter-paper {
+            background: #fffdf5;
+            padding: 25px 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: left;
+            border-left: 2px solid #ffccd5;
+        }
+        
+        .letter-title {
+            font-size: 1.1rem;
+            color: #ff4d6d;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .letter-body p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            color: #444;
+        }
+        
+        .letter-signature {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #ff4d6d;
+            text-align: right;
+        }
+
+        .song-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ff4d6d;
+            text-decoration: none;
+            word-break: break-all;
+            font-size: 0.8rem;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 15px;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <audio id="fart-sound">
+        <source src="https://www.soundjay.com/human/sounds/fart-01.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="phone-container">
+        
+        <div id="screen-morning" class="screen">
+            <h1>☀️Sbah lkhiir☀️<br>3arfek 3ad fay9a</h1>
+            <p>Sawbt lik wahd l3yba🫣</p>
+            <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdW9qamYyOHh6eXFidHh1bmZ6Y2R6eXN6eXN6eXN6eXN6eXN6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/6uMqzcbWRhoT6/giphy.gif">
+            <br>
+            <button class="btn" onclick="goToAsk()">Yllh nchufo ga3❤️</button>
+        </div>
+
+        <div id="screen-ask" class="screen hidden">
+            <h1>Wanna be my good girl (my Valentine)? 😊🌹</h1>
+            <p>(3arfek atgolih ah wlk jerrbi dik no😁)</p>
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnZueWJ0amR6eXFidHh1bmZ6Y2R6eXN6eXN6eXN6eXN6eXN6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/vO8F4fYQd39h6/giphy.gif" style="width: 180px;">
+            <br>
+            <button class="btn" onclick="sayYes()">Yes daddyyy👉👈🥺</button>
+            <button class="btn" id="no-btn" onclick="playFart()">👹NO👹</button>
+        </div>
+
+        <div id="screen-menu" class="screen hidden">
+            <h1>L7waaaaa! 🎀👏🏻🎉</h1>
+            <p>Yllh khtari daba (ra kolchi dyalk)</p>
+            <div class="gift-grid">
+                <div class="gift-box" onclick="openGift('bouquet')">💐</div>
+                <div class="gift-box" onclick="openGift('letter')">💌</div>
+                <div class="gift-box" onclick="openGift('song')">🎶</div>
+            </div>
+        </div>
+
+        <div id="screen-content" class="screen hidden">
+            <div id="content-display"></div>
+            <br>
+            <button class="btn" onclick="goBack()">Nchuf lakhrine</button>
+        </div>
+
+    </div>
+
+    <script>
+        function goToAsk() { transition('screen-morning', 'screen-ask'); }
+        function sayYes() { transition('screen-ask', 'screen-menu'); }
+
+        function transition(from, to) {
+            document.getElementById(from).classList.add('hidden');
+            document.getElementById(to).classList.remove('hidden');
+        }
+
+        function playFart() {
+            const audio = document.getElementById('fart-sound');
+            audio.currentTime = 0;
+            audio.play();
+            alert("Wrong answer! 💨 Try again.");
+        }
+
+        function openGift(type) {
+            document.getElementById('screen-menu').classList.add('hidden');
+            const display = document.getElementById('content-display');
+            document.getElementById('screen-content').classList.remove('hidden');
+
+            if (type === 'bouquet') {
+                display.innerHTML = `<h2>Lwirdat kijiw meak zwiwniiin</h2><p>(Faracha wst lwroooood)</p><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHR5amZ6eXFidHh1bmZ6Y2R6eXN6eXN6eXN6eXN6eXN6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/Z9S8S9S8S9S8S/giphy.gif">`;
+            } else if (type === 'letter') {
+                display.innerHTML = `
+                    <div class="letter-container">
+                        <div class="letter-paper">
+                            <h2 class="letter-title">To my favorite person</h2>
+                            <div class="letter-body">
+                                <p>Aya kbida dyali,</p>
+                                <p>Ba9a wahd 13j bach nkmlo 3am ana wiak, walakine wakha hkak kan7ss brassi bhala kan3rfk mn dima.</p>
+                                <p>3arf chno kay3jbk w chno kay3ssbk, o wakha hkak kan3ssbk mra mra just to see that cute angry face.</p>
+                                <p>Nti bnywta zwiwna w ghzala w fenna, w 7nina w sbbara w so much fun. Had ilias wakha brhoch mra mra ra kaybghik ktr mn rasso w baghik tbqay meah tal lmot.</p>
+                                <p>Bach mantwloch, I'm just so lucky to have you.</p>
+                            </div>
+                            <p class="letter-signature">Kanmot 3lik, <br>Ilias</p>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'song') {
+                display.innerHTML = `
+                    <h2>3a9la fach cht7na 3la had disk f balcon? 💃🕺</h2>
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/VBp9Ea5UM_Y?si=J5kGpIwZy03sQFCy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p style="font-size: 0.8rem; margin-top: 10px;">Press play</p>
+                `;
+            }
+        }
+
+        function goBack() { transition('screen-content', 'screen-menu'); }
+    </script>
+</body>
+</html>
